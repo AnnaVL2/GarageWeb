@@ -1,0 +1,344 @@
+/* I found James Bosworth's codepen the other day (https://codepen.io/bosworthco/) and saw his work on shifted perspective and wanted to learn how to make it.
+I also found this Youtube video (https://www.youtube.com/watch?v=LgiadQQM6mo&list=PLbu98QxRH81KxxMclY_ZRmm4Dac-n7cSA) which is a great tutorial of the project. Enjoy!
+*/
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Alef', sans-serif;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#dfc2fb), to(#a6c1ee));
+  background-image: linear-gradient(to top, #dfc2fb 0%, #a6c1ee 100%);
+  overflow: scroll;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  margin: auto;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.wrap {
+  display: inline;
+  display: block;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.menu {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -2rem;
+}
+
+.link-box {
+  max-width: 70rem;
+  margin-bottom: 3em;
+}
+
+header .logo {
+  margin: auto;
+  width: 27%;
+}
+
+.logo img {
+  margin-top: 1.5em;
+  margin-bottom: 3rem;
+  position: -webkit-sticky;
+  position: sticky;
+  opacity: .8;
+  -webkit-animation: LogoMoves 4s ease-in-out infinite alternate;
+          animation: LogoMoves 4s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes LogoMoves {
+  from {
+    -webkit-transform: rotate(-7deg);
+            transform: rotate(-7deg);
+  }
+  to {
+    -webkit-transform: rotate(7deg);
+            transform: rotate(7deg);
+  }
+}
+
+@keyframes LogoMoves {
+  from {
+    -webkit-transform: rotate(-7deg);
+            transform: rotate(-7deg);
+  }
+  to {
+    -webkit-transform: rotate(7deg);
+            transform: rotate(7deg);
+  }
+}
+
+.list {
+  display: block;
+  display: f;
+  margin: auto;
+  max-width: 50em;
+  text-align: center;
+}
+
+p.listText {
+  margin: auto;
+  letter-spacing: -.08rem;
+  margin-top: .5em;
+  font-family: 'Alef', sans-serif;
+  font-size: 3em;
+  font-style: italic;
+  font-weight: 700;
+  -webkit-text-fill-color: white;
+  text-shadow: none;
+}
+
+span.page_title {
+  font-family: 'Alef', sans-serif;
+  font-weight: 400;
+  padding: 0;
+  font-size: 1.6em;
+  color: #fff;
+  color: #304d8b;
+  font-style: italic;
+  letter-spacing: .01rem;
+}
+
+.perspective-text {
+  color: white;
+  font-family: 'Alef', sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.perspective-line {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+p {
+  background-color: none;
+  margin: 0;
+  height: 50px;
+  line-height: 30px;
+  letter-spacing: -.18rem;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  font-family: 'Alef', sans-serif;
+  font-weight: 700;
+  -webkit-text-fill-color: rgba(116, 109, 116, 0.2);
+  text-shadow: 15px 13px rgba(223, 194, 251, 0.1);
+}
+
+p.caption {
+  background-color: none;
+  margin: 0;
+  line-height: 25px;
+  letter-spacing: -.2rem;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  font-family: 'Alef', sans-serif;
+  font-weight: 400;
+  -webkit-text-fill-color: rgba(77, 95, 175, 0.3);
+}
+
+.modal {
+  background: rgba(14, 15, 27, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 1s ease-out;
+  transition: 1s ease-out;
+}
+
+.perspective-line:nth-child(odd) {
+  -webkit-transform: skew(60deg, -30deg) scaleY(0.667);
+          transform: skew(60deg, -30deg) scaleY(0.667);
+}
+
+.perspective-line:nth-child(even) {
+  -webkit-transform: skew(0deg, -30deg) scaleY(1.337);
+          transform: skew(0deg, -30deg) scaleY(1.337);
+}
+
+.container2 .perspective-text:hover p {
+  -webkit-transform: translate(0, -50px);
+          transform: translate(0, -50px);
+  -webkit-text-fill-color: #ffffff;
+  text-shadow: 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container1 .perspective-text:hover p {
+  -webkit-transform: translate(0, -50px);
+          transform: translate(0, -50px);
+  -webkit-text-fill-color: #ffffff;
+  text-shadow: 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container3 .perspective-text:hover p {
+  -webkit-transform: translate(0, -50px);
+          transform: translate(0, -50px);
+  -webkit-text-fill-color: #ffffff;
+  text-shadow: 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.perspective-line:nth-child(1) {
+  left: 29px;
+  background: none;
+}
+
+.perspective-line:nth-child(2) {
+  left: 58px;
+  background: none;
+}
+
+.perspective-line:nth-child(3) {
+  left: 87px;
+  background: none;
+}
+
+.perspective-line:nth-child(4) {
+  left: 116px;
+  background: none;
+}
+
+.address {
+  width: 90%;
+  line-height: 2em;
+  margin: auto;
+  margin-top: 4.7rem;
+  font-family: 'Alef', sans-serif;
+  line-height: 3em;
+  font-size: 1.2rem;
+  letter-spacing: .15rem;
+  font-weight: 700;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.8);
+  border-top-width: .01em;
+  border-top-style: solid;
+  border-top-color: #e9e3e3;
+  text-align: center;
+  padding-bottom: 10em;
+}
+
+@media (max-width: 35em) {
+  .wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: auto;
+  }
+  .menu {
+    margin-top: -5.3em;
+    display: block;
+    margin-left: -.7em;
+    margin-right: auto;
+  }
+  .link-box {
+    margin-bottom: 1.9em;
+  }
+  header .logo {
+    margin-left: 1.3em;
+    width: 45%;
+  }
+  .logo img {
+    width: 100%;
+    margin-top: .9em;
+    margin-bottom: 3rem;
+    position: -webkit-sticky;
+    position: sticky;
+    opacity: .8;
+  }
+  .perspective-text {
+    color: white;
+    font-family: 'Alef', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  .perspective-line {
+    height: 23px;
+    overflow: hidden;
+    position: relative;
+  }
+  p {
+    margin: 0;
+    height: 25px;
+    line-height: 14px;
+    letter-spacing: -.08rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    font-family: 'Alef', sans-serif;
+    font-weight: 700;
+    -webkit-text-fill-color: rgba(56, 55, 55, 0.3);
+    text-shadow: none;
+  }
+  .container2 .perspective-text:hover p {
+    -webkit-text-fill-color: #ffffff;
+  }
+  .container2 p {
+    -webkit-text-fill-color: rgba(99, 15, 4, 0.9);
+  }
+  .container1 .perspective-text:hover p {
+    -webkit-text-fill-color: #ffffff;
+  }
+  .container1 p {
+    -webkit-text-fill-color: rgba(51, 4, 45, 0.9);
+  }
+  .container3 .perspective-text:hover p {
+    -webkit-text-fill-color: #ffffff;
+  }
+  .container3 p {
+    -webkit-text-fill-color: rgba(8, 77, 73, 0.9);
+  }
+  .address {
+    width: 90%;
+    line-height: 2em;
+    margin: auto;
+    margin-top: 9rem;
+    font-family: 'Alef', sans-serif;
+    line-height: 1.6em;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    font-weight: 700;
+    margin-left: 1.4em;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.9);
+    border-top-width: .01em;
+    border-top-style: solid;
+    border-top-color: #ececec;
+    text-align: center;
+  }
+  span.page_title {
+    font-family: 'Alef', sans-serif;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: white;
+    line-height: .8em;
+    font-style: italic;
+    letter-spacing: .1rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
